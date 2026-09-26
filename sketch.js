@@ -31,8 +31,9 @@ let stripePosX = 1;
 const stripePosY = 0;
 const stripeWidth = 20;
 let offset = 1;
-
-function scannerMove() {
+const partica1lpos= {x:100,y:0}
+const partical1Dim={x:50,y:HEIGHT}
+// function scannerMove() {5
 
   const offsetflag = (stripePosX <= 0 || (stripePosX + stripeWidth) >= WIDTH);
   // offset = (offsetflag) ? -offset : offset;
@@ -51,7 +52,7 @@ function partical(posX, posY, weight, height, color) {
 function draw() {
   r.BeginDrawing();
   r.ClearBackground(black);
-  partical(100, 0, 50, HEIGHT, r.SKYBLUE)
+  partical(partica1lpos.x, partica1lpos.y, partical1Dim.x,partical1Dim.y, r.SKYBLUE)
   scanner(stripePosX, stripePosY, stripeWidth, HEIGHT, white)
   r.EndDrawing();
 }
