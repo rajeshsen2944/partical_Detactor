@@ -33,7 +33,7 @@ const stripeWidth = 20;
 let offset = 1;
 const partica1lpos= {x:100,y:0}
 const partical1Dim={x:50,y:HEIGHT}
-// function scannerMove() {5
+function scannerMove() {
 
   const offsetflag = (stripePosX <= 0 || (stripePosX + stripeWidth) >= WIDTH);
   // offset = (offsetflag) ? -offset : offset;
