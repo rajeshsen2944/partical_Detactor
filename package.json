@@ -1,0 +1,24 @@
+{
+  "name": "particaldetactor",
+  "version": "1.0.0",
+  "description": "\"scan for  partical\"",
+  "homepage": "https://github.com/rajeshsen2944/raylib_template#readme",
+  "bugs": {
+    "url": "https://github.com/rajeshsen2944/raylib_template/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajeshsen2944/raylib_template.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "raylib": "^0.14.0"
+  },
+  "devDependencies": {}
+}

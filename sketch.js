@@ -1,14 +1,14 @@
 const g = require("./geometry")
 const r = require("raylib");
 
-const title = "Center a Rectangle";   //window Property
-const WIDTH = 900;
-const HEIGHT = 1000;
+const TITLE = "Partical Detactor";   //window Property
+const WIDTH = 500;
+const HEIGHT = 500;
 
 function setup() {
-  r.InitWindow(WIDTH, HEIGHT, title);
+  r.InitWindow(WIDTH, HEIGHT, TITLE);
   r.SetTargetFPS(50);
-  r.SetWindowState(r.FLAG_WINDOW_RESIZABLE);
+  r.SetWindowPosition(1200, 200);
 }
 
 
@@ -21,23 +21,38 @@ function teardown() {
 }
 
 
+function scanner(posX, posY, stripeWidth, stripeHeight, color) {
+  r.DrawRectangle(posX, posY, stripeWidth, stripeHeight, color);
+}
 
-const recWidth = 500;
-const recHeight = 200;
+const white = r.WHITE;
+const black = r.BLACK;
+let stripePosX = 1;
+const stripePosY = 0;
+const stripeWidth = 20;
+let offset = 1;
 
+function scannerMove() {
+
+  const offsetflag = (stripePosX <= 0 || (stripePosX + stripeWidth) >= WIDTH);
+  // offset = (offsetflag) ? -offset : offset;
+  if (offsetflag) {
+    offset = (-offset);
+  }
+  stripePosX += offset;
+}
+function update() {
+  scannerMove();
+
+}
+function partical(posX, posY, weight, height, color) {
+  r.DrawRectangle(posX, posY, weight, height, color)
+}
 function draw() {
   r.BeginDrawing();
-  r.ClearBackground(r.BLUE);
-
-  r.DrawRectangle(
-    g.calcOffset(WIDTH, recWidth),
-    g.calcOffset(HEIGHT, recHeight),
-    recWidth,
-    recHeight,
-    r.WHITE,
-  );
-
-
+  r.ClearBackground(black);
+  partical(100, 0, 50, HEIGHT, r.SKYBLUE)
+  scanner(stripePosX, stripePosY, stripeWidth, HEIGHT, white)
   r.EndDrawing();
 }
 
@@ -47,4 +62,5 @@ module.exports = {
   draw,
   running,
   teardown,
+  update,
 }
